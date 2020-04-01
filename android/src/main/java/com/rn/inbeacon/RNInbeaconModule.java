@@ -46,7 +46,7 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
     }
   }
 
-  @ReactMethod void putPropertyString(String property, String value, final Promise promise) {
+  @ReactMethod void putUserPropertyString(String property, String value, final Promise promise) {
     try {
       UserPropertyService userPropertyService = this.getUserPropertyService();
       userPropertyService.putPropertyString(property, value);
