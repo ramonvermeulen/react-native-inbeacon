@@ -6,7 +6,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 import com.inbeacon.sdk.InbeaconManager;
-import java.lang.String
+import java.lang.String;
 
 public class RNInbeaconModule extends ReactContextBaseJavaModule {
 
@@ -25,7 +25,7 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
   /* All bridge methods */
   @ReactMethod
   public void initialize(String clientId, String clientSecret) {
-    System.out.println('Test test - RNInBeacon');
-    InbeaconManager.initialize(this, clientId, clientSecret);
+    System.out.println("Test test - RNInBeacon");
+    InbeaconManager.initialize(getReactApplicationContext(), clientId, clientSecret);
   }
 }
