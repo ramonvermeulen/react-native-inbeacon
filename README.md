@@ -1,5 +1,9 @@
 
 # react-native-inbeacon
+This module is developed because I needed to make use of the Native Inbeacon SDKs in react-native. There were no bridge libraries yet so I thought why not write it myself and publish it for others.
+
+Inbeacon Android SDK: https://github.com/inbeacon/InbeaconSdk-android \
+Inbeacon iOS SDK: https://github.com/inbeacon/InbeaconSdk-ios
 
 ## Installation
 `$ npm install react-native-inbeacon --save`
