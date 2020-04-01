@@ -1,6 +1,10 @@
 
 # react-native-inbeacon
-This module is developed because I needed to make use of the Native Inbeacon SDKs in react-native. There were no bridge libraries yet so I thought why not write it myself and publish it for others.
+NOTE: This library is still under development and is not stable yet.
+
+This module is providing a bridge between React Native and the Android / iOS Native SDKs from Inbeacon. It is a third-party module so not created by any of the Inbeacon creators. The module is created because I as creator did need to make use of Inbeacon within React Native. There was no library for it yet, so why not make it myself and publish it?
+
+Contribution to the library is highly appreciated! 👍
 
 Inbeacon Android SDK: https://github.com/inbeacon/InbeaconSdk-android \
 Inbeacon iOS SDK: https://github.com/inbeacon/InbeaconSdk-ios
