@@ -6,6 +6,8 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Promise;
 import com.inbeacon.sdk.InbeaconManager;
+import com.inbeacon.sdk.User.UserPropertyService;
+
 import java.lang.String;
 
 public class RNInbeaconModule extends ReactContextBaseJavaModule {
@@ -24,7 +26,7 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
 
   /* All helper methods */
   private UserPropertyService getUserPropertyService() {
-    InbeaconManager inbManager = InbeaconManager.getInstance();
+    InbeaconManager inbManager = (InbeaconManager) InbeaconManager.getInstance();
     return inbManager.getUserPropertyService();
   }
 
