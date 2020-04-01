@@ -45,4 +45,14 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
       promise.reject(e.getMessage());
     }
   }
+
+  @ReactMethod void putPropertyString(String property, String value, final Promise promise) {
+    try {
+      UserPropertyService userPropertyService = this.getUserPropertyService();
+      userPropertyService.putPropertyString(property, value);
+      promise.resolve(value);
+    } catch (Exception e) {
+      promise.reject(e.getMessage());
+    }
+  }
 }
