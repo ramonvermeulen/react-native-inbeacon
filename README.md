@@ -1,16 +1,14 @@
 
 # react-native-inbeacon
 
-## Getting started
-
+## Installation
 `$ npm install react-native-inbeacon --save`
 
-### Mostly automatic installation
+For react-native versions 0.60 and higher the installation will take place through autolinking.
 
-`$ react-native link react-native-inbeacon`
+For react-native versions lower than 0.60, please take a look at the manual installation.
 
 ### Manual installation
-
 
 #### iOS
 
@@ -38,6 +36,6 @@
 ```javascript
 import RNInbeacon from 'react-native-inbeacon';
 
-// TODO: What to do with the module?
+// API docs are in development
 RNInbeacon;
 ```
