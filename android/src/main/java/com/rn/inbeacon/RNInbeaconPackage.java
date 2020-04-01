@@ -1,5 +1,5 @@
 
-package com.reactlibrary;
+package com.rn.inbeacon;
 
 import java.util.Arrays;
 import java.util.Collections;
