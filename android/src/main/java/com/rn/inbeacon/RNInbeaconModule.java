@@ -4,7 +4,7 @@ package com.rn.inbeacon;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.inbeacon.sdk.InbeaconManager;
 import java.lang.String;
 
@@ -22,10 +22,25 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
     return "RNInbeacon";
   }
 
+  /* All helper methods */
+  private UserPropertyService getUserPropertyService() {
+    InbeaconManager inbManager = InbeaconManager.getInstance();
+    return inbManager.getUserPropertyService();
+  }
+
   /* All bridge methods */
   @ReactMethod
   public void initialize(String clientId, String clientSecret) {
-    System.out.println("Test test - RNInBeacon");
     InbeaconManager.initialize(getReactApplicationContext(), clientId, clientSecret);
+  }
+
+  @ReactMethod
+  public void getUserPropertyString(String property, String defaultValue, final Promise promise) {
+    try {
+      UserPropertyService userPropertyService = this.getUserPropertyService();
+      promise.resolve(userPropertyService.getPropertyString(property, defaultValue));
+    } catch (Exception e) {
+      promise.reject(e.getMessage());
+    }
   }
 }
