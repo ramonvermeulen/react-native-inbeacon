@@ -11,7 +11,7 @@ declare module 'react-native-inbeacon' {
     ONESHOT = 'ONESHOT',
     OUT = 'OUT'
   }
-  export function initialize(clientId: string, clientSecret: string): Promise<boolean>;
+  export function initialize(clientId: string, clientSecret: string): Promise<void>;
   export function getUserPropertyStringWithFallback(property: string, fallback: string): Promise<string>;
   export function getUserPropertyString(property: string): Promise<string>;
   export function putUserPropertyString(property: string, value: string): Promise<boolean>;
