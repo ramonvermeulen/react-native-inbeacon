@@ -179,6 +179,7 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
     }
   }
 
+  @ReactMethod
   public void verifyCapabilities(final Promise promise) {
     try {
       VerifiedCapability cap = InbeaconManager.getInstance().verifyCapabilities();
