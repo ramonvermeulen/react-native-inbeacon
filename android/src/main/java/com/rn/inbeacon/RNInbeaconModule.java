@@ -38,8 +38,12 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void initialize(String clientId, String clientSecret, final Promise promise) {
     try {
-      InbeaconManager.initialize(getReactApplicationContext(), clientId, clientSecret);
-      promise.resolve(null);
+      if (InbeaconManager.getInstance().getContext() == null) {
+        InbeaconManager.initialize(getReactApplicationContext(), clientId, clientSecret);
+        promise.resolve(null);
+        return;
+      }
+      promise.reject("InitializationError", "InbeaconManager is already initialized and can only be initialized once!");
     } catch (Exception e) {
       promise.reject(e.getClass().toString(), e.getMessage());
     }
