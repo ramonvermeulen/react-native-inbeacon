@@ -26,7 +26,10 @@
 __NOTE: This module is still under development and is not stable yet.__  
 __STATE: Early development__
 
-This module is providing a bridge between React Native and the Android / iOS Native SDKs from Inbeacon. This is a third-party module, so it is not developed or maintained by any of the Inbeacon creators themselves. The reason for creating this module was because there was no react-native module for Inbeacon yet, and I had to use it in react-native. So why not publish my code so other people can make use of it, and improve it?
+This module is providing a bridge between React Native and the Android / iOS Native SDKs from Inbeacon. 
+This is a third-party module, so it is not developed or maintained by any of the Inbeacon creators themselves. 
+The reason for creating this module was because there was no react-native module for Inbeacon yet, and I had to use it in react-native. 
+So why not publish my code to npm so people can use it and improve it?
 
 Contribution to this module is highly appreciated! 👍
 
