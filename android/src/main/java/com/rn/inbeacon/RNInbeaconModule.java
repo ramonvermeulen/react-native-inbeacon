@@ -38,7 +38,8 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void initialize(String clientId, String clientSecret, final Promise promise) {
     try {
-      if (InbeaconManager.getInstance().getContext() == null) {
+      // if there is no context and no PPID the InbeaconManager is not initialized yet
+      if (InbeaconManager.getInstance().getContext() == null || InbeaconManager.getInstance().getPPID() == null) {
         InbeaconManager.initialize(getReactApplicationContext(), clientId, clientSecret);
         promise.resolve(null);
         return;
@@ -83,10 +84,10 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
 
 
   @ReactMethod
-  public void getUserPropertyLongWithFallback(String property, long defaultValue, final Promise promise) {
+  public void getUserPropertyLongWithFallback(String property, double defaultValue, final Promise promise) {
     try {
       UserPropertyService userPropertyService = this.getUserPropertyService();
-      promise.resolve(userPropertyService.getPropertyLong(property, defaultValue));
+      promise.resolve(userPropertyService.getPropertyLong(property, (long) defaultValue));
     } catch (Exception e) {
       promise.reject(e.getClass().toString(), e.getMessage());
     }
@@ -103,10 +104,10 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void putUserPropertyLong(String property, long value, final Promise promise) {
+  public void putUserPropertyLong(String property, double value, final Promise promise) {
     try {
       UserPropertyService userPropertyService = this.getUserPropertyService();
-      userPropertyService.putPropertyLong(property, value);
+      userPropertyService.putPropertyLong(property, (long) value);
       promise.resolve(null);
     } catch (Exception e) {
       promise.reject(e.getClass().toString(), e.getMessage());
@@ -296,17 +297,17 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void triggerCustomEvent(long eventId, String eventType, String extra, final Promise promise) {
+  public void triggerCustomEvent(double eventId, String eventType, String extra, final Promise promise) {
     try {
       switch(eventType) {
         case "IN":
-          InbeaconManager.getInstance().triggerCustomEvent(eventId, EventType.IN, extra);
+          InbeaconManager.getInstance().triggerCustomEvent((long) eventId, EventType.IN, extra);
           break;
         case "ONESHOT":
-          InbeaconManager.getInstance().triggerCustomEvent(eventId, EventType.ONESHOT, extra);
+          InbeaconManager.getInstance().triggerCustomEvent((long) eventId, EventType.ONESHOT, extra);
           break;
         case "OUT":
-          InbeaconManager.getInstance().triggerCustomEvent(eventId, EventType.OUT, extra);
+          InbeaconManager.getInstance().triggerCustomEvent((long) eventId, EventType.OUT, extra);
           break;
         default:
           promise.reject("Wrong eventType: ", "eventType should be IN | ONESHOT | OUT");
