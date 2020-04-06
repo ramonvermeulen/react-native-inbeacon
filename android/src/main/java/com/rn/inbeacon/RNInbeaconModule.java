@@ -1,12 +1,19 @@
 
 package com.rn.inbeacon;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Promise;
+import com.inbeacon.sdk.Base.Constants;
 import com.inbeacon.sdk.Base.VerifiedCapability;
 import com.inbeacon.sdk.Custom.EventType;
 import com.inbeacon.sdk.InbeaconManager;
@@ -36,20 +43,20 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
 
   /* All bridge methods */
   @ReactMethod
-  public void initialize(String clientId, String clientSecret, final Promise promise) {
+  public void initialize(String clientId, String clientSecret, String scanningText, final Promise promise) {
     try {
       // if there is no context and no PPID the InbeaconManager is not initialized yet
       if (InbeaconManager.getInstance().getContext() == null || InbeaconManager.getInstance().getPPID() == null) {
-        InbeaconManager.initialize(getReactApplicationContext(), clientId, clientSecret);
+        InbeaconManager.getInstance().setContext(getReactApplicationContext());
+        InbeaconManager.getInstance().setForegroundservice(true, scanningText);
+        InbeaconManager.getInstance().setCredentials(clientId, clientSecret).start();
         promise.resolve(null);
-        return;
       }
-      promise.reject("InitializationError", "InbeaconManager is already initialized and can only be initialized once!");
+      promise.reject("InbeaconManager is already initialized and can only be initialized just once!");
     } catch (Exception e) {
       promise.reject(e.getClass().toString(), e.getMessage());
     }
   }
-
 
   @ReactMethod
   public void getUserPropertyStringWithFallback(String property, String defaultValue, final Promise promise) {
@@ -317,5 +324,20 @@ public class RNInbeaconModule extends ReactContextBaseJavaModule {
     } catch (Exception e) {
       promise.reject(e.getClass().toString(), e.getMessage());
     }
+  }
+
+  @ReactMethod
+  public void onReceiveEvent(final Callback callback) {
+    BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+      @Override
+      public void onReceive(Context context, Intent intent) {
+        System.out.println("Inbeacon received message");
+        callback.invoke(intent.getAction(), intent.getExtras());
+      }
+    };
+    System.out.println("Inbeacon setting up onReceive");
+    IntentFilter intentFilter = new IntentFilter();
+    intentFilter.addAction(Constants.LocalBroadcasts.EVENT_GEOFENCE);
+    LocalBroadcastManager.getInstance(getReactApplicationContext().getApplicationContext()).registerReceiver(mMessageReceiver, intentFilter);
   }
 }

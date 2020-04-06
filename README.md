@@ -43,6 +43,8 @@ For react-native versions 0.60 and higher the installation will take place throu
 
 For react-native versions lower than 0.60, please take a look at the manual installation.
 
+For Android the following permission is required in your AndroidManifest.xml:<br>
+`<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />`
 ### Manual installation
 <details>
   <summary>Click to expand!</summary>
