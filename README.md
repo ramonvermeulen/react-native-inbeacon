@@ -78,27 +78,27 @@ Please take a look at the [__Android__](https://github.com/inbeacon/InbeaconSdk-
 
 | Name          | Params        | Return value | iOS   |  Android |
 |:-------------:|:-------------:|:------------:|:-----:|---------:|
-| **initialize** | clientId: string,<br>clientSecret: string | Promise&lt;void&gt; | In development | ✔ |
-| **getUserPropertyStringWithFallback** | property: string,<br>fallback: string | Promise&lt;string&gt; | In development | ✔ |
-| **getUserPropertyString** | property: string | Promise&lt;string&gt; | In development | ✔ |
-| **putUserPropertyString** | property: string,<br>value: string | Promise&lt;void&gt; | In development | ✔ |
-| **getUserPropertyLongWithFallback** | property: string,<br>fallback: number | Promise&lt;number&gt; | In development | ✔ |
-| **getUserPropertyLong** | property: string | Promise&lt;number&gt; | In development | ✔ |
-| **putUserPropertyLong** | property: string,<br>value: number | Promise&lt;void&gt; | In development | ✔ |
-| **getUserPropertyDoubleWithFallback** | property: string,<br>fallback: number | Promise&lt;number&gt; | In development | ✔ |
-| **getUserPropertyDouble** | property: string | Promise&lt;number&gt; | In development | ✔ |
-| **putUserPropertyDouble** | property: string,<br>value: number | Promise&lt;void&gt; | In development | ✔ |
-| **hasTag** | tag: string | Promise&lt;boolean&gt; | In development | ✔ |
-| **setTag** | tag: string | Promise&lt;void&gt; | In development | ✔ |
-| **resetTag** | tag: string | Promise&lt;void&gt; | In development | ✔ |
-| **verifyCapabilities** | None | Promise&lt;string&gt; | In development | ✔ |
-| **setLogLevel** | level: LogLevel | Promise&lt;void&gt; | In development | ✔ |
-| **getLogLevel** | None | Promise&lt;string&gt; | In development | ✔ |
+| **initialize** | clientId: string,<br>clientSecret: string | Promise&lt;void&gt; | ✔ | ✔ |
+| **getUserPropertyStringWithFallback** | property: string,<br>fallback: string | Promise&lt;string&gt; | ✔ | ✔ |
+| **getUserPropertyString** | property: string | Promise&lt;string&gt; | ✔ | ✔ |
+| **putUserPropertyString** | property: string,<br>value: string | Promise&lt;void&gt; | ✔ | ✔ |
+| **getUserPropertyLongWithFallback** | property: string,<br>fallback: number | Promise&lt;number&gt; | ✔ | ✔ |
+| **getUserPropertyLong** | property: string | Promise&lt;number&gt; | ✔ | ✔ |
+| **putUserPropertyLong** | property: string,<br>value: number | Promise&lt;void&gt; | ✔ | ✔ |
+| **getUserPropertyDoubleWithFallback** | property: string,<br>fallback: number | Promise&lt;number&gt; | ✔ | ✔ |
+| **getUserPropertyDouble** | property: string | Promise&lt;number&gt; | ✔ | ✔ |
+| **putUserPropertyDouble** | property: string,<br>value: number | Promise&lt;void&gt; | ✔ | ✔ |
+| **hasTag** | tag: string | Promise&lt;boolean&gt; | ✔ | ✔ |
+| **setTag** | tag: string | Promise&lt;void&gt; | ✔ | ✔ |
+| **resetTag** | tag: string | Promise&lt;void&gt; | ✔ | ✔ |
+| **verifyCapabilities** | None | Promise&lt;string&gt; | ✔ | ✔ |
+| **setLogLevel** | level: LogLevel | Promise&lt;void&gt; | ✔ | ✔ |
+| **getLogLevel** | None | Promise&lt;string&gt; | ✔ | ✔ |
 | **setForegroundService** | state: boolean,<br>notification: string | Promise&lt;void&gt; | In development | ✔ |
-| **askPermission** | None | void | In development | ✔ |
-| **setPpid** | ppid: string | Promise&lt;void&gt; | In development | ✔ |
-| **getPpid** | None | Promise&lt;string&gt; | In development | ✔ |
-| **triggerCustomEvent** | eventId: number,<br>eventType: EventType,<br>extra: string | void | In development | ✔ |
+| **askPermission** | None | void | ✔ | ✔ |
+| **setPpid** | ppid: string | Promise&lt;void&gt; | ✔ | ✔ |
+| **getPpid** | None | Promise&lt;string&gt; | ✔ | ✔ |
+| **triggerCustomEvent** | eventId: number,<br>eventType: EventType,<br>extra: string | void | ✔ | ✔ |
 
 
 ## Usage
