@@ -107,7 +107,8 @@ class Inbeacon: NSObject {
         if (params["logLevel"] == nil) { reject("1", "logLevel not provided", NSError(domain: "InbeaconSdk", code: 1, userInfo: nil)) }
         switch params["logLevel"] {
         case "WARN":
-            <#code#>
+            InbeaconSdk.sharedInstance.logLevel = InbLogLevel.warning
+            break;
         case "INFO":
             InbeaconSdk.sharedInstance.logLevel = InbLogLevel.info
             break;
