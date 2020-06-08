@@ -23,8 +23,6 @@
 </p>
 
 # react-native-inbeacon
-__NOTE: This module is still under development and is not stable yet.__  
-__STATE: Early development__
 
 This module is providing a bridge between React Native and the Android / iOS Native SDKs from Inbeacon. 
 This is a third-party module, so it is not developed or maintained by any of the Inbeacon creators themselves. 
@@ -94,17 +92,29 @@ Please take a look at the [__Android__](https://github.com/inbeacon/InbeaconSdk-
 | **verifyCapabilities** | None | Promise&lt;string&gt; | ✔ | ✔ |
 | **setLogLevel** | level: LogLevel | Promise&lt;void&gt; | ✔ | ✔ |
 | **getLogLevel** | None | Promise&lt;string&gt; | ✔ | ✔ |
-| **setForegroundService** | state: boolean,<br>notification: string | Promise&lt;void&gt; | In development | ✔ |
+| **setForegroundService** | state: boolean,<br>notification: string | Promise&lt;void&gt; | No support | ✔ |
 | **askPermission** | None | void | ✔ | ✔ |
 | **setPpid** | ppid: string | Promise&lt;void&gt; | ✔ | ✔ |
 | **getPpid** | None | Promise&lt;string&gt; | ✔ | ✔ |
 | **triggerCustomEvent** | eventId: number,<br>eventType: EventType,<br>extra: string | void | ✔ | ✔ |
 
 
-## Usage
+## Example
 ```javascript
+import React from 'react';
 import RNInbeacon from 'react-native-inbeacon';
+import { useEffect } from 'react-native';
 
-// Usage examples are in development
-RNInbeacon;
+export function RNIBTest({ children }) {
+
+  useEffect(() => {
+    RNInbeacon.initialize('CLIENT_ID', 'CLIENT_SECRET').then(() => {
+      console.log('RNInbeacon is initialized');
+    }).catch(err => {
+      console.log('RNInbeacon threw an error while initializing', err);
+    });
+  }, []);
+
+  return (<>{children}</>)
+}
 ```
