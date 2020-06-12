@@ -7,7 +7,7 @@ class Inbeacon: NSObject {
     func initialize(_ params: [String: String], _ resolve: RCTPromiseResolveBlock, rejecter reject:RCTPromiseRejectBlock) -> Void {
         if (params["clientId"] == nil || params["clientSecret"] == nil) { reject("1", "ClientId or ClientSecret not provided", NSError(domain: "InbeaconSdk", code: 1, userInfo: nil)) }
         InbeaconSdk.sharedInstance.askPermissions = false;
-        InbeaconSdk.createWith(clientId: params["clientId"]!, clientSecret: "")
+        InbeaconSdk.createWith(clientId: params["clientId"]!, clientSecret: params["clientSecret"]!)
         resolve(nil)
     }
     
