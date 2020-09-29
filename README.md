@@ -8,7 +8,7 @@
   <a href="https://github.com/ramonvermeulen/react-native-inbeacon/graphs/commit-activity">
     <img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" alt="Maintenance" />
   </a>
-  <a href="https://npmjs.org/package/react-native-inbeacon-reborn">
+  <a href="https://npmjs.org/package/react-native-inbeacon">
     <img src="http://img.shields.io/npm/dm/react-native-inbeacon.svg" alt="Downloads" />
   </a>
   <a href="https://npmjs.org/package/react-native-inbeacon">
