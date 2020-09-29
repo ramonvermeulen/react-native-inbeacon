@@ -5,12 +5,12 @@ declare module 'react-native-inbeacon' {
     DEBUG = 'DEBUG',
     ERROR = 'ERROR',
     VERBOSE = 'VERBOSE',
-  }
+  };
   export enum EventType {
     IN = 'IN',
     ONESHOT = 'ONESHOT',
     OUT = 'OUT'
-  }
+  };
   export function initialize(clientId: string, clientSecret: string): Promise<void>;
   export function getUserPropertyStringWithFallback(property: string, fallback: string): Promise<string>;
   export function getUserPropertyString(property: string): Promise<string>;
