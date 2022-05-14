@@ -57,7 +57,7 @@ For Android the following permission is required in your AndroidManifest.xml:<br
   #### Android
 
   1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-    - Add `import com.reactlibrary.RNInbeaconPackage;` to the imports at the top of the file
+    - Add `import com.rn.inbeacon.RNInbeaconPackage;` to the imports at the top of the file
     - Add `new RNInbeaconPackage()` to the list returned by the `getPackages()` method
   2. Append the following lines to `android/settings.gradle`:
       ```
